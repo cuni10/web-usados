@@ -1,42 +1,29 @@
 import React, { Fragment } from 'react';
 import styled from 'styled-components';
-import portadaImg from "../img/PF_PortadaUsados_11062021.jpg";
-
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from 'react-responsive-carousel';
-
-const Grid = styled.div`
-    padding: auto;
-    justify-items: center;
-    
-    
-`;
 
 const Carrousel = styled.div`
-    justify-self: center;
-    justify-content: center;
-    
-    img {
-        padding: auto;
+
+    img{
+        display: block;
+        margin: auto;
+
+        @media (max-width: 840px) {
+            max-width: 680px;
+        }
+
+        @media (max-width: 700px) {
+            max-width: 360px;
+        }
+        
     }
 `;
 
 const Portada = () => {
     return ( 
         <Fragment>
-            <Grid>
                 <Carrousel>
-                    <Carousel width={800} showThumbs={false} autoPlay={true} showStatus={false}>
-                        <div>
-                            <img src={portadaImg} alt="portada"/>
-                        </div>
-                        <div>
-                            <img src={portadaImg} alt="portada2"/>
-                        </div>
-                    </Carousel>
-                    
+                    <img src="https://res.cloudinary.com/cuni10/image/upload/q_50/v1624855885/Portada/portada_dqsqt6.jpg" alt="portada1"/>
                 </Carrousel>
-            </Grid>
         </Fragment>
 
      );

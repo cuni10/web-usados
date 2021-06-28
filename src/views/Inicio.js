@@ -1,6 +1,7 @@
 import React,{Fragment} from 'react';
 import Barra from "../components/Barra";
 import Portada from "../components/Portada";
+import Catalogo from '../components/Catalogo';
 import styled from 'styled-components';
 
 const GridLayout = styled.div`
@@ -19,7 +20,6 @@ const Nav = styled.div`
 `;
 
 const Main = styled.div`
-    background-color: #ebebeb;
     h1{
         color: #FFB703;
         text-shadow: black 0px 0px 3px;
@@ -38,6 +38,7 @@ const Inicio = () => {
                     <Portada />
                 </Header>
                 <Main>
+                    <Catalogo />
                 </Main>
             </GridLayout>
             
