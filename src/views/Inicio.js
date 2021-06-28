@@ -20,10 +20,6 @@ const Nav = styled.div`
 `;
 
 const Main = styled.div`
-    h1{
-        color: #FFB703;
-        text-shadow: black 0px 0px 3px;
-    }
     grid-column: 1/4;
 `;
 
