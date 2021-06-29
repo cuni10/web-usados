@@ -1,5 +1,4 @@
 import React,{Fragment} from 'react';
-import Barra from "../components/Barra";
 import Portada from "../components/Portada";
 import Catalogo from '../components/Catalogo';
 import styled from 'styled-components';
@@ -27,9 +26,6 @@ const Inicio = () => {
     return ( 
         <Fragment>
             <GridLayout>
-                <Nav>
-                    <Barra />
-                </Nav>
                 <Header>
                     <Portada />
                 </Header>

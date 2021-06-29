@@ -1,10 +1,11 @@
-import React from 'react';
-import Barra from '../components/Barra';
+import React,{Fragment} from 'react';
 
 
 const Contacto = () => {
     return ( 
-        <Barra />
+        <Fragment>
+            <h1>Contacto</h1>
+        </Fragment>
      );
 }
  

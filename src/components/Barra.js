@@ -1,8 +1,4 @@
 import {React, Fragment} from 'react';
-import {
-    BrowserRouter as Router,
-    Link
-  } from "react-router-dom";
 
 import styled from "styled-components";
 
@@ -79,10 +75,9 @@ const SearchContainer = styled.div`
     }
 `;
 
-const Barra = () => {
+const Barra = ({Link}) => {
     return ( 
         <Fragment>
-            <Router>
                 <Container>
                     <UlLinks>
                         <Links>
@@ -102,7 +97,6 @@ const Barra = () => {
                 </SearchContainer>
                     
                 </Container>
-            </Router>
         </Fragment>
 
      );

@@ -3,15 +3,27 @@ import styled from 'styled-components';
 
 const Grid = styled.div`
     display: grid;
-    padding: 0px 300px;
     margin-top: 50px;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 300px 300px 300px;
+    grid-row-gap: 50px;
+    grid-column-gap: 50px;
+
+    justify-content: center;
+
+    @media (max-width: 1000px) {
+            grid-template-columns: 300px 300px;
+        }
+
+        @media (max-width: 700px) {
+            grid-template-columns: 1fr;
+        }
 
     div{
         background-color: whitesmoke;
         justify-self: center;
         border-radius: 20px;
         border: 1px solid rgba(51,51,51,0.3);
+        margin: auto;
 
         img{
             display: block;
@@ -32,13 +44,14 @@ const Grid = styled.div`
             color: #333333;
             font-size: 1.5em;
             margin-left: 10px;
+            margin-top:5px;
         }
 
         h2{
             color: #333333;
             font-size: 1.2em;
             margin-left: 10px;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
         }
     }
 `;
@@ -48,25 +61,25 @@ const Catalogo = () => {
         <Fragment>
             <Grid>
                 <div>
-                    <img src="https://res.cloudinary.com/cuni10/image/upload/c_scale,h_360,q_40/v1624917206/Catalogo/Bora/BoraDique_rpnowg.jpg" alt="boraDique"/>
+                    <img src="https://res.cloudinary.com/cuni10/image/upload/c_scale,h_300,q_40/v1624917206/Catalogo/Bora/BoraDique_rpnowg.jpg" alt="boraDique"/>
 
-                    <h1>Volkswagen Bora</h1>
+                    <h1>Bora Volkswagen</h1>
                     <h2>2009</h2>
                 </div>
                     
                 <div>
-                    <img src="https://res.cloudinary.com/cuni10/image/upload/c_scale,h_360,q_40/v1624917122/Catalogo/Fox/FoxDique_19062021_ypnppt.jpg" alt="FoxDique"/>
+                    <img src="https://res.cloudinary.com/cuni10/image/upload/c_scale,h_300,q_40/v1624917122/Catalogo/Fox/FoxDique_19062021_ypnppt.jpg" alt="FoxDique"/>
 
 
-                    <h1>Volkswagen Fox</h1>
+                    <h1>Fox Volkswagen</h1>
                     <h2>2017</h2>
                 </div>
 
                 <div>
-                    <img src="https://res.cloudinary.com/cuni10/image/upload/c_scale,h_360,q_40/v1624917107/Catalogo/Kangoo/KangoDique_t22ifm.jpg" alt="KangooDique"/>
+                    <img src="https://res.cloudinary.com/cuni10/image/upload/c_scale,h_300,q_40/v1624917107/Catalogo/Kangoo/KangoDique_t22ifm.jpg" alt="KangooDique"/>
 
 
-                    <h1>Renault Kangoo</h1>
+                    <h1>Kangoo Renault</h1>
                     <h2>2017</h2>
                 </div>
             </Grid>

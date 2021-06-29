@@ -1,10 +1,11 @@
-import React from 'react';
-
-import Barra from '../components/Barra';
+import React,{Fragment} from 'react';
+import Catalogo from '../components/Catalogo';
 
 const Autos = () => {
     return ( 
-        <Barra />
+        <Fragment>
+            <Catalogo />
+        </Fragment>
      );
 }
  
