@@ -1,6 +1,7 @@
 import React from "react";
 
 import Barra from "./components/Barra";
+import Footer from "./components/Footer";
 
 import Inicio from "./views/Inicio";
 import Autos from "./views/Autos";
@@ -31,6 +32,8 @@ function App() {
           <Inicio />
         </Route>
       </Switch>
+
+      <Footer />
     </Router>
 
   );
