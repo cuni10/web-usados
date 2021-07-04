@@ -1,30 +1,26 @@
 import React, { Fragment } from 'react';
 import styled from 'styled-components';
+import Carousel from './Carousel';
+import Media from "react-media";
+import CarouselMovil from './CarouselMovil';
 
-const Carrousel = styled.div`
-
-    img{
-        display: block;
-        margin: auto;
-
-        @media (max-width: 840px) {
-            max-width: 680px;
-        }
-
-        @media (max-width: 700px) {
-            max-width: 360px;
-        }
-        
-    }
+const Container = styled.div`
 `;
 
 const Portada = () => {
     return ( 
-        <Fragment>
-                <Carrousel>
-                    <img src="https://res.cloudinary.com/cuni10/image/upload/q_50/v1624855885/Portada/portada_dqsqt6.jpg" alt="portada1"/>
-                </Carrousel>
-        </Fragment>
+
+        <Media queries={{
+            small: "(max-width: 599px)",
+            medium: "(min-width: 600px)",
+          }}>
+            {matches => (
+              <Fragment>
+                {matches.small && <CarouselMovil />}
+                {matches.medium && <Carousel />}
+              </Fragment>
+            )}
+          </Media>
 
      );
 }

@@ -1,0 +1,8 @@
+#image-slider {
+    margin: auto;
+}
+
+.splide__slide img {
+    width: 100%;
+
+}

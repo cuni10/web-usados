@@ -3,14 +3,13 @@ import '../carousel.css';
 import Splide from "@splidejs/splide";
 
 
-const Carousel = () => { 
+const CarouselMovil = () => { 
 
             useEffect(()=>{
                 new Splide( '#image-slider', {
-                    'heightRatio': 0.2,
                     'cover': true,
-                    'width': 1600,
-                    'focus':"center",
+                    'arrows':false,
+                    'heightRatio': 0.5,
                     'autoplay': true,
                     'rewind': true,} ).mount();
                 console.log("Carrousel cargado.");
@@ -35,4 +34,4 @@ const Carousel = () => {
      );
 }
  
-export default Carousel;
+export default CarouselMovil;
