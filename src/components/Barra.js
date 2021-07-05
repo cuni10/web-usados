@@ -92,7 +92,7 @@ const Barra = ({Link}) => {
                     </UlLinks>
 
                 <SearchContainer>
-                    <input id="input" type="text" placeholder="Ej. Peugeot 208"></input>
+                    <input id="input" type="text" placeholder="Busca tu auto."></input>
                     <button id="button" type="button"><i className="material-icons">search</i></button>
                 </SearchContainer>
                     
