@@ -14,10 +14,6 @@ const Header = styled.div`
     grid-column: 1/4;
 `;
 
-const Nav = styled.div`
-    grid-column: 1/4;
-`;
-
 const Main = styled.div`
     grid-column: 1/4;
 `;

@@ -1,5 +1,7 @@
-import React,{Fragment} from 'react';
+import React,{Fragment, useEffect, useState} from 'react';
 import styled from 'styled-components';
+
+import { db } from '../init-firebase';
 
 const Grid = styled.div`
     display: grid;
@@ -70,95 +72,43 @@ const Grid = styled.div`
 `;
 
 const Catalogo = () => {
+
+
+    const [data,setData] = useState([]);
+
+    const consultaCatalogo = async () =>{
+        db.collection("autos").onSnapshot((querySnapshot) =>{
+            const docs = [];
+
+            querySnapshot.forEach((doc)=>{
+                docs.push({...doc.data(), id:doc.id});
+            });
+
+            setData(docs);
+        });
+
+       
+    }
+
+    useEffect(()=>{
+
+        consultaCatalogo();
+
+
+        },[]);
+
     return ( 
         <Fragment>
             <Grid>
-                <div>
-                    <img src="https://res.cloudinary.com/cuni10/image/upload/c_scale,h_250,q_40/v1624917206/Catalogo/Bora/BoraDique_rpnowg.jpg" alt="boraDique"/>
+                {data.map( data => (
+                    <div key={data.id}>
+                        <img src={data.foto} alt={data.name + " " + data.marca}/>
 
-                    <h1>Bora Volkswagen</h1>
-                    <h2>2009</h2>
-                </div>
-                    
-                <div>
-                    <img src="https://res.cloudinary.com/cuni10/image/upload/c_scale,h_250,q_40/v1624917122/Catalogo/Fox/FoxDique_19062021_ypnppt.jpg" alt="FoxDique"/>
-
-
-                    <h1>Fox Volkswagen</h1>
-                    <h2>2017</h2>
-                </div>
-
-                <div>
-                    <img src="https://res.cloudinary.com/cuni10/image/upload/c_scale,h_250,q_40/v1624917107/Catalogo/Kangoo/KangoDique_t22ifm.jpg" alt="KangooDique"/>
-
-
-                    <h1>Kangoo Renault</h1>
-                    <h2>2017</h2>
-                </div>
-
-                <div>
-                    <img src="https://res.cloudinary.com/cuni10/image/upload/c_scale,h_250,q_40/v1625441108/Catalogo/Punto/Punto02_d3lpz1.jpg" alt="KangooDique"/>
-
-
-                    <h1>Punto Fiat</h1>
-                    <h2>2009</h2>
-                </div>
-
-                <div>
-                    <img src="https://res.cloudinary.com/cuni10/image/upload/c_scale,h_250,q_40/v1625441108/Catalogo/Punto/Punto02_d3lpz1.jpg" alt="KangooDique"/>
-
-
-                    <h1>Punto Fiat</h1>
-                    <h2>2009</h2>
-                </div>
-
-                <div>
-                    <img src="https://res.cloudinary.com/cuni10/image/upload/c_scale,h_250,q_40/v1625441108/Catalogo/Punto/Punto02_d3lpz1.jpg" alt="KangooDique"/>
-
-
-                    <h1>Punto Fiat</h1>
-                    <h2>2009</h2>
-                </div>
-
-                <div>
-                    <img src="https://res.cloudinary.com/cuni10/image/upload/c_scale,h_250,q_40/v1625441108/Catalogo/Punto/Punto02_d3lpz1.jpg" alt="KangooDique"/>
-
-
-                    <h1>Punto Fiat</h1>
-                    <h2>2009</h2>
-                </div>
-
-                <div>
-                    <img src="https://res.cloudinary.com/cuni10/image/upload/c_scale,h_250,q_40/v1625441108/Catalogo/Punto/Punto02_d3lpz1.jpg" alt="KangooDique"/>
-
-
-                    <h1>Punto Fiat</h1>
-                    <h2>2009</h2>
-                </div>
-
-                <div>
-                    <img src="https://res.cloudinary.com/cuni10/image/upload/c_scale,h_250,q_40/v1625441108/Catalogo/Punto/Punto02_d3lpz1.jpg" alt="KangooDique"/>
-
-
-                    <h1>Punto Fiat</h1>
-                    <h2>2009</h2>
-                </div>
-
-                <div>
-                    <img src="https://res.cloudinary.com/cuni10/image/upload/c_scale,h_250,q_40/v1625441108/Catalogo/Punto/Punto02_d3lpz1.jpg" alt="KangooDique"/>
-
-
-                    <h1>Punto Fiat</h1>
-                    <h2>2009</h2>
-                </div>
-
-                <div>
-                    <img src="https://res.cloudinary.com/cuni10/image/upload/c_scale,h_250,q_40/v1625441108/Catalogo/Punto/Punto02_d3lpz1.jpg" alt="KangooDique"/>
-
-
-                    <h1>Punto Fiat</h1>
-                    <h2>2009</h2>
-                </div>
+                        <h1>{data.name} {data.marca}</h1>
+                        <h2>{data.modelo}</h2>
+                    </div>
+                ))}
+                
             </Grid>
         </Fragment>
 

@@ -1,11 +1,7 @@
 import React, { Fragment } from 'react';
-import styled from 'styled-components';
 import Carousel from './Carousel';
 import Media from "react-media";
 import CarouselMovil from './CarouselMovil';
-
-const Container = styled.div`
-`;
 
 const Portada = () => {
     return ( 

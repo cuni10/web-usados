@@ -13,7 +13,6 @@ const Carousel = () => {
                     'focus':"center",
                     'autoplay': true,
                     'rewind': true,} ).mount();
-                console.log("Carrousel cargado.");
             },[])
             
     return ( 
