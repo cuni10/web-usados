@@ -1,4 +1,5 @@
 # Catamarca Usados
+![react](https://img.shields.io/badge/react-v17.0.2-green)![styled](https://img.shields.io/badge/styled--components-v5.3.0-green)![router-dom](https://img.shields.io/badge/react--router--dom-v5.2.0-green)![react-media](https://img.shields.io/badge/react--media-v1.10.0-green)![splide.js](https://img.shields.io/badge/splide.js-v2.4.21-green)![firebase](https://img.shields.io/badge/firebase-v8.7.0-green)
 
 Proyecto de pagina web, enfocada a la compra y venta de vehículos automotores.
 
