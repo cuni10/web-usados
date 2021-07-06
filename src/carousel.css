@@ -1,10 +1,16 @@
 #image-slider {
     margin: auto;
     z-index: 0;
+    border-radius: 50px;
 }
 
 .splide__slide img {
     width: 100%;
     z-index: 0;
+    border-radius: 50px;
 
+}
+
+.splide__track{
+    border-radius: 0px 0px 5px 5px ;
 }

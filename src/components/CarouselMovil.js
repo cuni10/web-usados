@@ -28,6 +28,9 @@ const CarouselMovil = () => {
                         <li className="splide__slide">
                             <img src="https://res.cloudinary.com/cuni10/image/upload/q_50/v1625438224/Portada/PortadaPrueba_zgjfcz.jpg" alt="Portada2"/>
                         </li>
+                        <li className="splide__slide">
+                            <img src="https://res.cloudinary.com/cuni10/image/upload/q_50/v1625544910/Portada/PortadaPrueba2_kwwuwd.jpg" alt="Portada2"/>
+                        </li>
 		            </ul>
 	            </div>
             </div>

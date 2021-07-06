@@ -19,9 +19,12 @@ const Links = styled.li`
         text-align: center;
         padding: 14px 16px;
         text-decoration: none;
+        border-bottom: 4px #FFB703 solid;
+        border-top: 4px #FFB703 solid;
         :hover{
         color: black;
-        transition-duration: 500ms;
+        transition-duration: 0.2s;
+        border-bottom: 4px #023047 solid;
         }
     }
 `;
@@ -70,7 +73,7 @@ const SearchContainer = styled.div`
 
         :hover{
             color: #FFB703;
-            transition-duration: 500ms;
+            transition-duration: 0.2s;
         }
     }
 `;

@@ -27,24 +27,22 @@ const Grid = styled.div`
     div{
         background-color: whitesmoke;
         justify-self: center;
-        border-radius: 20px;
+        border-radius: 5px;
         border: 1px solid rgba(51,51,51,0.3);
         margin: auto;
         color: #333333;
         cursor: pointer;
 
         :hover{
-            background-color: #023047;
-            color: white;
-            transform: scale(105%);
+            box-shadow: 0px 0px 7px black;
             
 
-            transition: 0.5s;
+            transition: 0.2s;
         }
 
         img{
             display: block;
-            border-radius: 20px 20px 0px 0px;
+            border-radius: 5px 5px 0px 0px;
         }
 
         hr{

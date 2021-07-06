@@ -32,7 +32,8 @@ const BarraMovil = ({Link}) => {
 
     function closeMenu (){
         setClassHamburger("hamburger");
-        setClassMenu("nav-menu"); 
+        setClassMenu("nav-menu");
+        window.scrollTo(0, 0);
     }
 
     function checkClass () {
@@ -51,7 +52,7 @@ const BarraMovil = ({Link}) => {
             
             <div className="header">
                 <nav className="navbar">
-                    <a href="#!"><img className="logo"src="https://res.cloudinary.com/cuni10/image/upload/c_scale,h_64,q_60/v1624950758/Logos/PF_LogoUsados_11062021_ygbv5o.png" alt="logoFooter"/></a>
+                    <a href="/"><img className="logo"src="https://res.cloudinary.com/cuni10/image/upload/c_scale,h_64,q_60/v1624950758/Logos/PF_LogoUsados_11062021_ygbv5o.png" alt="logoFooter"/></a>
 
                     <SearchContainer>
                         
