@@ -8,7 +8,7 @@ Proyecto de pagina web, enfocada a la compra y venta de vehículos automotores.
 - [react-router-dom](https://www.npmjs.com/package/react-router-dom)
 - [styled-components](https://www.npmjs.com/package/styled-components)
 - [react-media](https://www.npmjs.com/package/react-media)
-- 
+
  ## Javascript Libraries
 - [splide.js](https://www.npmjs.com/package/@splidejs/splide)
 
