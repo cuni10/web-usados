@@ -2,13 +2,15 @@
 
 Proyecto de pagina web, enfocada a la compra y venta de vehículos automotores.
 
-![catamarca-usados](https://res.cloudinary.com/cuni10/image/upload/c_scale,h_124,q_50/v1624950758/Logos/PF_LogoUsados_11062021_ygbv5o.png)
+[![catamarca-usados](https://res.cloudinary.com/cuni10/image/upload/c_scale,h_124,q_50/v1624950758/Logos/PF_LogoUsados_11062021_ygbv5o.png)](https://github.com/cuni10/web-usados)
 
-## React Dependencias
-- [splide.js](https://www.npmjs.com/package/@splidejs/splide)
+## React Libraries 
 - [react-router-dom](https://www.npmjs.com/package/react-router-dom)
 - [styled-components](https://www.npmjs.com/package/styled-components)
 - [react-media](https://www.npmjs.com/package/react-media)
+- 
+ ## Javascript Libraries
+- [splide.js](https://www.npmjs.com/package/@splidejs/splide)
 
 ## Deploy
 El deploy se realizo con firebase, usando Firestore y Firebase Hosting.
