@@ -21,13 +21,6 @@
 # Firebase Config
 src/init-firebase.js
 
-# Firebase Deploy
-firebase.json
-.firebaserc
-.firebase
-.github
-public/404.html
-
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
