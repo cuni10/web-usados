@@ -18,9 +18,6 @@
 .env.test.local
 .env.production.local
 
-# Firebase Config
-src/init-firebase.js
-
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
