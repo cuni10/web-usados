@@ -36,13 +36,13 @@ function App() {
           </Media>
       <Switch>
         <Route path="/contacto">
-          <Contacto />
+          <Contacto title="Contacto - Cat Usados"/>
         </Route>
         <Route path="/autos">
-          <Autos />
+          <Autos title="Autos - Cat Usados" />
         </Route>
         <Route path="/">
-          <Inicio />
+          <Inicio title="Catamarca Usados" />
         </Route>
       </Switch>
 

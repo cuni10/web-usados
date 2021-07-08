@@ -1,4 +1,4 @@
-import React,{Fragment, useState} from 'react';
+import React,{Fragment,useState} from 'react';
 import "../BarraMovil.css";
 import styled from 'styled-components';
 
@@ -23,16 +23,19 @@ const SearchContainer = styled.div`
 const BarraMovil = ({Link}) => {
 
     const [ClassMenu,setClassMenu] = useState("nav-menu");
-    const [ClassHamburger,setClassHamburger] = useState("hamburger")
+    const [ClassHamburger,setClassHamburger] = useState("hamburger");
+    const [ClassContainer,setClassContainer] = useState("container");
 
     function mobileMenu() {
         setClassHamburger("hamburger active");
         setClassMenu("nav-menu active");
+        setClassContainer("container active");
     }
 
     function closeMenu (){
         setClassHamburger("hamburger");
         setClassMenu("nav-menu");
+        setClassContainer("container");
         window.scrollTo(0, 0);
     }
 
@@ -49,33 +52,35 @@ const BarraMovil = ({Link}) => {
     return ( 
 
         <Fragment>
-            
-            <div className="header">
-                <nav className="navbar">
-                    <a href="/"><img className="logo"src="https://res.cloudinary.com/cuni10/image/upload/c_scale,h_64,q_60/v1624950758/Logos/PF_LogoUsados_11062021_ygbv5o.png" alt="logoFooter"/></a>
+            <div className={ClassContainer}>
+                
+                <div className="header">
+                    <nav className="navbar">
+                        <a href="/"><img className="logo"src="https://res.cloudinary.com/cuni10/image/upload/c_scale,h_64,q_60/v1624950758/Logos/PF_LogoUsados_11062021_ygbv5o.png" alt="logoFooter"/></a>
 
-                    <SearchContainer>
-                        
-                        <input name="imputTexto" id="input" type="text" placeholder="Busca tu auto."></input>
-                        
-                    </SearchContainer>
-                    <ul className={ClassMenu}>
-                        <li className="nav-item">
-                            <Link onClick={closeMenu} className="nav-link" to="/">Inicio</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link onClick={closeMenu} className="nav-link" to="/autos">Autos</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link onClick={closeMenu} className="nav-link" to="/contacto">Contacto</Link>
-                        </li>
-                    </ul>
-                    <div className={ClassHamburger} onClick={checkClass}>
-                        <span className="bar"></span>
-                        <span className="bar"></span>
-                        <span className="bar"></span>
-                    </div>
-                </nav>
+                        <SearchContainer>
+                            
+                            <input name="imputTexto" id="input" type="text" placeholder="Busca tu auto."></input>
+                            
+                        </SearchContainer>
+                        <ul className={ClassMenu}>
+                            <li className="nav-item">
+                                <Link onClick={closeMenu} className="nav-link" to="/">Inicio</Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link onClick={closeMenu} className="nav-link" to="/autos">Autos</Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link onClick={closeMenu} className="nav-link" to="/contacto">Contacto</Link>
+                            </li>
+                        </ul>
+                        <div className={ClassHamburger} onClick={checkClass}>
+                            <span className="bar"></span>
+                            <span className="bar"></span>
+                            <span className="bar"></span>
+                        </div>
+                    </nav>
+                </div>
             </div>
             <div className="relleno"></div>
         </Fragment>
