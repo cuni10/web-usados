@@ -1,6 +1,6 @@
 import React,{Fragment} from "react";
 
-import "./app.css";
+import "./App.css";
 
 import Barra from "./components/Barra";
 import Footer from "./components/Footer";
