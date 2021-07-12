@@ -18,9 +18,6 @@
 .env.test.local
 .env.production.local
 
-# Firebase Config
-src/init-firebase.js
-
 # Firebase Deploy
 firebase.json
 .firebaserc
