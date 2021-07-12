@@ -9,6 +9,7 @@ import BarraMovil from "./components/BarraMovil";
 import Inicio from "./views/Inicio";
 import Autos from "./views/Autos";
 import Contacto from "./views/Contacto";
+import Auto from "./views/Auto";
 
 import Media from "react-media";
 
@@ -35,14 +36,17 @@ function App() {
             )}
           </Media>
       <Switch>
+        <Route path="/autos/:autoId">
+          <Auto title="Auto - Cat Usados" />
+        </Route>
         <Route path="/contacto">
           <Contacto title="Contacto - Cat Usados"/>
         </Route>
         <Route path="/autos">
-          <Autos title="Autos - Cat Usados" />
+          <Autos title="Autos - Cat Usados" Link={Link}/>
         </Route>
         <Route path="/">
-          <Inicio title="Catamarca Usados" />
+          <Inicio title="Catamarca Usados" Link={Link}/>
         </Route>
       </Switch>
 
