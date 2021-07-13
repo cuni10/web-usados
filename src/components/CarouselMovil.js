@@ -9,7 +9,8 @@ const CarouselMovil = () => {
                 new Splide( '#image-slider', {
                     'cover': true,
                     'arrows':false,
-                    'slideFocus':false,
+                    'drag':true,
+                    "flickPower":10,
                     'heightRatio': 0.5,
                     'autoplay': true,
                     'rewind': true,} ).mount();

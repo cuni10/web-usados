@@ -1,5 +1,6 @@
 import React,{Fragment, useEffect, useState} from 'react';
 import styled from 'styled-components';
+import {Image,Transformation} from 'cloudinary-react';
 
 import { db } from '../init-firebase';
 
@@ -23,7 +24,10 @@ const Grid = styled.div`
     @media (max-width: 700px) {
             grid-template-columns: 1fr;
     }
-
+    
+    .Link{
+        justify-self: center;
+    }
     div{
         background-color: whitesmoke;
         justify-self: center;
@@ -99,10 +103,11 @@ const Catalogo = ({Link}) => {
         <Fragment>
             <Grid>
                 {data.map( data => (
-                    <Link key={data.id} to={`/autos/${data.marca}/${data.name}/${data.id}`}>
+                    <Link className="Link" key={data.id} to={`/autos/${data.marca}/${data.name}/${data.id}`}>
                         <div>
-                            <img src={data.foto} alt={data.name + " " + data.marca}/>
-
+                            <Image cloudName = "cuni10" publicId={`Catalogo/${data.name}_${data.id}/${data.id}.jpg`}>
+                                <Transformation height="251" quality="40" crop="scale" />
+                            </Image>
                             <h1>{data.name} {data.marca}</h1>
                             <h2>{data.modelo}</h2>
                         </div>
