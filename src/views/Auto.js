@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Helmet } from "react-helmet";
 import { db } from '../init-firebase';
 import { useParams } from 'react-router';
+import Catalogo from '../components/Catalogo';
 
 const Auto = () => {
 
@@ -9,7 +9,7 @@ const Auto = () => {
 
     const {name,marca} = auto;
 
-    let {autoId} = useParams();
+    let {autoId,autoName,autoMarca} = useParams();
 
     const consultaAuto = async () => {
 
@@ -18,18 +18,18 @@ const Auto = () => {
         documentFile.get().then(snapshot => {
             let data = snapshot.data();
             setAuto(data);
-        }) 
+            
+        })
     }
     useEffect( ()=> {
+        
         consultaAuto();
+        document.title = `${autoName} ${autoMarca} - Cat Usados`;
     });
 
     return (
 
     <>
-        <Helmet>
-            <title>{name + " " + marca + " - Cat Usados"}</title>
-        </Helmet>
         <h1>Hola pa {autoId}</h1>
     </>
     

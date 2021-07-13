@@ -99,7 +99,7 @@ const Catalogo = ({Link}) => {
         <Fragment>
             <Grid>
                 {data.map( data => (
-                    <Link key={data.id} to={`/autos/${data.id}`}>
+                    <Link key={data.id} to={`/autos/${data.marca}/${data.name}/${data.id}`}>
                         <div>
                             <img src={data.foto} alt={data.name + " " + data.marca}/>
 

@@ -36,7 +36,7 @@ function App() {
             )}
           </Media>
       <Switch>
-        <Route path="/autos/:autoId">
+        <Route path="/autos/:autoMarca/:autoName/:autoId">
           <Auto title="Auto - Cat Usados" />
         </Route>
         <Route path="/contacto">

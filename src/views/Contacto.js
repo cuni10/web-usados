@@ -1,5 +1,4 @@
-import React,{Fragment} from 'react';
-import { Helmet } from "react-helmet";
+import React,{Fragment,useEffect} from 'react';
 import styled from 'styled-components';
 
 const GridLayout = styled.div`
@@ -10,11 +9,13 @@ const GridLayout = styled.div`
 
 const Contacto = ({title}) => {
 
+    
+    useEffect(()=>{
+        document.title = title;
+    })
+
     return ( 
         <Fragment>
-            <Helmet>
-                <title>Contacto - Cat Usados</title>
-            </Helmet>
             <GridLayout>
                 <h1>Contacto</h1>
             </GridLayout>
