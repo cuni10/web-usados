@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { db } from '../init-firebase';
 import { useParams } from 'react-router';
-import Catalogo from '../components/Catalogo';
 
 const Auto = () => {
 
     const [auto,setAuto] = useState({});
 
-    const {name,marca} = auto;
+    //const {name,marca} = auto;
 
     let {autoId,autoName,autoMarca} = useParams();
 
@@ -30,7 +29,7 @@ const Auto = () => {
     return (
 
     <>
-        <h1>Hola pa {autoId}</h1>
+        <h1>{auto.name} {autoId}</h1>
     </>
     
     )
