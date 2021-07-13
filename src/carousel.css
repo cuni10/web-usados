@@ -14,3 +14,11 @@
 .splide__track{
     border-radius: 0px 0px 5px 5px ;
 }
+
+@media only screen and (max-width: 768px) {
+
+    .splide__track{
+    border-radius: 0px 0px 0px 0px ;
+}
+
+}

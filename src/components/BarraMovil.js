@@ -24,18 +24,18 @@ const BarraMovil = ({Link}) => {
 
     const [ClassMenu,setClassMenu] = useState("nav-menu");
     const [ClassHamburger,setClassHamburger] = useState("hamburger");
-    const [ClassContainer,setClassContainer] = useState("container");
+    const [ClassRelleno,setClassRelleno] = useState("relleno");
 
     function mobileMenu() {
         setClassHamburger("hamburger active");
         setClassMenu("nav-menu active");
-        setClassContainer("container active");
+        setClassRelleno("relleno active");
     }
 
     function closeMenu (){
         setClassHamburger("hamburger");
         setClassMenu("nav-menu");
-        setClassContainer("container");
+        setClassRelleno("relleno");
         window.scrollTo(0, 0);
     }
 
@@ -52,7 +52,7 @@ const BarraMovil = ({Link}) => {
     return ( 
 
         <Fragment>
-            <div className={ClassContainer}>
+            <div>
                 
                 <div className="header">
                     <nav className="navbar">
@@ -82,7 +82,8 @@ const BarraMovil = ({Link}) => {
                     </nav>
                 </div>
             </div>
-            <div className="relleno"></div>
+            <div className="rellenoBarra"></div>
+            <div className={ClassRelleno}></div>
         </Fragment>
      );
 }
