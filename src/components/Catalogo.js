@@ -69,7 +69,7 @@ const Grid = styled.div`
     }
 `;
 
-const Catalogo = () => {
+const Catalogo = ({Link}) => {
 
 
     const [data,setData] = useState([]);
@@ -99,12 +99,14 @@ const Catalogo = () => {
         <Fragment>
             <Grid>
                 {data.map( data => (
-                    <div key={data.id}>
-                        <img src={data.foto} alt={data.name + " " + data.marca}/>
+                    <Link key={data.id} to={`/autos/${data.id}`}>
+                        <div>
+                            <img src={data.foto} alt={data.name + " " + data.marca}/>
 
-                        <h1>{data.name} {data.marca}</h1>
-                        <h2>{data.modelo}</h2>
-                    </div>
+                            <h1>{data.name} {data.marca}</h1>
+                            <h2>{data.modelo}</h2>
+                        </div>
+                    </Link>
                 ))}
                 
             </Grid>

@@ -1,4 +1,5 @@
-import React,{Fragment, useEffect} from 'react';
+import React,{Fragment} from 'react';
+import { Helmet } from "react-helmet";
 import Portada from "../components/Portada";
 import Catalogo from '../components/Catalogo';
 import styled from 'styled-components';
@@ -18,20 +19,19 @@ const Main = styled.div`
     grid-column: 1/4;
 `;
 
-const Inicio = ({title}) => {
-
-    useEffect(() =>{
-        document.title = title;
-    });
+const Inicio = ({title,Link}) => {
 
     return ( 
         <Fragment>
+            <Helmet>
+                <title>Catamarca Usados</title>
+            </Helmet>
             <GridLayout>
                 <Header>
                     <Portada />
                 </Header>
                 <Main>
-                    <Catalogo />
+                    <Catalogo Link={Link}/>
                 </Main>
             </GridLayout>
             
