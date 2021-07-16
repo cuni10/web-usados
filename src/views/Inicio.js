@@ -35,7 +35,7 @@ const Inicio = ({title,Link}) => {
                     <Catalogo Link={Link}/>
                 </Main>
             </GridLayout>
-            
+
         </Fragment>
         
      );

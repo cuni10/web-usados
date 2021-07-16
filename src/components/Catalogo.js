@@ -36,6 +36,7 @@ const Grid = styled.div`
         margin: auto;
         color: #333333;
         cursor: pointer;
+        max-width: 251px;
 
         :hover{
             box-shadow: 0px 0px 7px black;
@@ -63,12 +64,14 @@ const Grid = styled.div`
             font-size: 1.5em;
             margin-left: 10px;
             margin-top:5px;
+            word-break:break-all;
         }
 
         h2{
             font-size: 1.2em;
             margin-left: 10px;
             margin-bottom: 5px;
+            word-break:break-all;
         }
     }
 `;
