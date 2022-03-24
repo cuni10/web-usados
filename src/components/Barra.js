@@ -43,6 +43,7 @@ const SearchContainer = styled.div`
     margin: auto;
     border-radius: 10px;
     
+    
     #input{
         width: 100%;
         border: 3px solid #023047;
@@ -54,6 +55,7 @@ const SearchContainer = styled.div`
         color: #023047;
         font-weight: 400;
         font-size: 1.1em;
+        background-color: whitesmoke;
     }
 
     #button{

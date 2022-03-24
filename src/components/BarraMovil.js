@@ -16,6 +16,7 @@ const SearchContainer = styled.div`
         color: #023047;
         font-weight: 400;
         font-size: 1.1em;
+        background-color: whitesmoke;
     }
     
 `;
