@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState} from 'react';
 import { db } from '../init-firebase';
 import { useParams } from 'react-router';
 import {Image,Transformation} from 'cloudinary-react';
