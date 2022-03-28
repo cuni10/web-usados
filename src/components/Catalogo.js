@@ -140,7 +140,7 @@ const Catalogo = ({Link}) => {
                 {data.map( data => (
                     <Link className="Link" key={data.id} to={`/autos/${data.marca}/${data.name}/${data.id}`}>
                         <div>
-                            <Image cloudName = "cuni10" publicId={`Catalogo/${data.name}_${data.id}/${data.id}.jpg`}>
+                            <Image cloudName = "cuni10" publicId={`Catalogo/${data.name}_${data.id}/${data.id}_00.jpg`}>
                                 <Transformation height="251" quality="40" crop="scale" />
                             </Image>
                             <h1>{data.name} </h1>
