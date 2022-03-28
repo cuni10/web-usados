@@ -1,9 +1,8 @@
 import React, { useEffect, useState} from 'react';
 import { db } from '../init-firebase';
 import { useParams } from 'react-router';
-import {Image,Transformation} from 'cloudinary-react';
-
 import styled from 'styled-components';
+import {Image,Transformation} from 'cloudinary-react';
 
 const GridLayout = styled.div`
 
@@ -172,7 +171,7 @@ const Descripcion =styled.div`
 const Auto = () => {
 
     const [auto,setAuto] = useState({});
-    const [LinkFotos,setLinkFotos] = useState([]);
+    const [linkFotos,setLinkFotos] = useState([]);
 
     let {autoId,autoName,autoMarca} = useParams();
 
@@ -194,8 +193,7 @@ const Auto = () => {
                 linksFormateados.push(`Catalogo/${autoName}_${autoId}/${autoId}_0${i}.jpg`);
             }
             setLinkFotos(linksFormateados);
-            console.log(linksFormateados);
-        })
+        });
 
     }
 
@@ -205,7 +203,6 @@ const Auto = () => {
         document.title = `${autoName} ${autoMarca} - Cat Usados`;
         window.scrollTo(0, 0);
 
-    
     },[]);
 
     return (
@@ -215,11 +212,6 @@ const Auto = () => {
             <AutoCard>
 
                 <div className="left">
-                    {LinkFotos.map( (link,index) => (
-                        <Image cloud_name="cuni10" publicId={link} key={index}>
-                            <Transformation height="512" quality="90" crop="scale" />
-                        </Image>
-                    ))}
                     
                 </div>
                 <div className="right">
