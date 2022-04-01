@@ -48,7 +48,7 @@ const Footer = () => {
                     <a href="https://www.instagram.com/cat.usados/"><img src="https://res.cloudinary.com/cuni10/image/upload/c_scale,h_32,q_60/v1624950748/Logos/instagram_ysrvs9.png" alt="InstagramFooter"/></a>
                 </Redes>
                 <Copyright>
-                    <h1>Derechos reservados. Catamarca Usados 2021 &copy;</h1>
+                    <h1>Derechos reservados. Catamarca Usados 2022 &copy;</h1>
                 </Copyright>
             </Grid>
         </Fragment>
