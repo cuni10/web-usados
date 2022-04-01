@@ -4,6 +4,10 @@ import { useParams } from 'react-router';
 import styled from 'styled-components';
 import {Image,Transformation} from 'cloudinary-react';
 
+import { Carousel } from "react-responsive-carousel";
+import { render } from "react-dom";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+
 const GridLayout = styled.div`
 
     display: grid;
@@ -32,49 +36,61 @@ const AutoCard = styled.div`
     background-color: whitesmoke;
     width: 60%;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 50% 50%;
     border: 1px solid rgba(51,51,51,0.3);
     border-radius: 5px;
 
     
     .left{
-        
-        width: 100%;
-        height: auto;
-        
         img{
-            width: 100%;
 
+        }
+        .imgAuto{
+            width: 100%;
         }
     }
 
     .right{
         align-items: center;
+        min-width: 50%;
     }
 
     @media only screen and (max-width: 1600px) {
 
         width: 60%;
+        grid-template-columns: 50% 50%;
 
         .left{
-
-            img{
-            }
         }
     }
-    @media only screen and (max-width: 850px) {
 
-        width: 100%;
-        grid-template-columns: 1fr ;
+    @media only screen and (max-width: 1400px) {
+
+        width: 60%;
+        grid-template-columns: 50% 50%;
 
         .left{
-        background-color: #8ECAE6;
-        width: auto;
-        padding-top: 0px;
-        
-            img{
-                
+        }
+    }
+
+    @media only screen and (max-width: 850px) {
+
+        grid-template-columns: 100%;
+        width: 100%;
+
+        .left{
+            padding-top: 0px;
+            max-width: 350px;
+            
+            justify-self: center;
+
+            .imgAuto{
+
             }
+        }
+
+        .right{
+            border-top: 2px solid #038CFF;
         }
     }
 
@@ -172,6 +188,7 @@ const Auto = () => {
 
     const [auto,setAuto] = useState({});
     const [linkFotos,setLinkFotos] = useState([]);
+    const [consulta,setConsulta] = useState(false);
 
     let {autoId,autoName,autoMarca} = useParams();
 
@@ -193,6 +210,8 @@ const Auto = () => {
                 linksFormateados.push(`Catalogo/${autoName}_${autoId}/${autoId}_0${i}.jpg`);
             }
             setLinkFotos(linksFormateados);
+            setConsulta(true);
+            
         });
 
     }
@@ -202,8 +221,8 @@ const Auto = () => {
         consultaAuto();
         document.title = `${autoName} ${autoMarca} - Cat Usados`;
         window.scrollTo(0, 0);
-
-    },[]);
+        console.log(linkFotos);
+    },[consulta]);
 
     return (
 
@@ -212,7 +231,13 @@ const Auto = () => {
             <AutoCard>
 
                 <div className="left">
-                    
+                    <Carousel className="imgAuto" max-width="300px" dynamicHeight={true}>
+                        {linkFotos.map((item,i)=>(
+                            <div key={i}>
+                                <img  src={`https://res.cloudinary.com/cuni10/image/upload/c_scale,w_512,q_90/v1647550089/${item}`} alt="" />
+                            </div>
+                        ))}
+                    </Carousel>
                 </div>
                 <div className="right">
                     <Top>
@@ -259,4 +284,7 @@ const Auto = () => {
     
     )
 }
+
+render(<Carousel />, document.getElementById("root"));
+
 export default Auto;
