@@ -42,9 +42,7 @@ const AutoCard = styled.div`
 
     
     .left{
-        img{
 
-        }
         .imgAuto{
             width: 100%;
         }
@@ -60,8 +58,6 @@ const AutoCard = styled.div`
         width: 60%;
         grid-template-columns: 50% 50%;
 
-        .left{
-        }
     }
 
     @media only screen and (max-width: 1400px) {
@@ -69,8 +65,6 @@ const AutoCard = styled.div`
         width: 60%;
         grid-template-columns: 50% 50%;
 
-        .left{
-        }
     }
 
     @media only screen and (max-width: 850px) {
@@ -84,9 +78,6 @@ const AutoCard = styled.div`
             
             justify-self: center;
 
-            .imgAuto{
-
-            }
         }
 
         .right{
@@ -231,7 +222,7 @@ const Auto = () => {
             <AutoCard>
 
                 <div className="left">
-                    <Carousel className="imgAuto" max-width="300px" dynamicHeight={true}>
+                    <Carousel className="imgAuto">
                         {linkFotos.map((item,i)=>(
                             <div key={i}>
                                 <img  src={`https://res.cloudinary.com/cuni10/image/upload/c_scale,w_512,q_90/v1647550089/${item}`} alt="" />
