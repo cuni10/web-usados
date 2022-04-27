@@ -8,6 +8,9 @@ import { Carousel } from "react-responsive-carousel";
 import { render } from "react-dom";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
+import Loading from "../components/Loading";
+
+
 const GridLayout = styled.div`
 
     display: grid;
@@ -39,6 +42,7 @@ const AutoCard = styled.div`
     grid-template-columns: 50% 50%;
     border: 1px solid rgba(51,51,51,0.3);
     border-radius: 5px;
+    min-height: 600px;
 
     
     .left{
@@ -180,6 +184,7 @@ const Auto = () => {
     const [auto,setAuto] = useState({});
     const [linkFotos,setLinkFotos] = useState([]);
     const [consulta,setConsulta] = useState(false);
+    const [loading,setLoading] = useState(false);
 
     let {autoId,autoName,autoMarca} = useParams();
 
@@ -208,7 +213,11 @@ const Auto = () => {
     }
 
     useEffect( ()=> {
-        
+        setLoading(false);
+        setTimeout(()=>{
+            setLoading(true)
+        }
+        ,1000)
         consultaAuto();
         document.title = `${autoName} ${autoMarca} - Cat Usados`;
         window.scrollTo(0, 0);
@@ -218,53 +227,59 @@ const Auto = () => {
     return (
 
     <>
+        
         <GridLayout>
             <AutoCard>
-
-                <div className="left">
-                    <Carousel className="imgAuto">
-                        {linkFotos.map((item,i)=>(
-                            <div key={i}>
-                                <img  src={`https://res.cloudinary.com/cuni10/image/upload/c_scale,w_512,q_90/v1647550089/${item}`} alt="" />
-                            </div>
-                        ))}
-                    </Carousel>
-                </div>
-                <div className="right">
-                    <Top>
-                        <Titulo>
-                            <TituloSpan>
-                                <h1>{auto.marca}</h1>
-                                <h1>{auto.name}</h1>
-                                <h3>{auto.modelo}</h3>
-                                <h4>{auto.kilometraje + " Km"}</h4>
-                            </TituloSpan>
+                {
+                loading ? 
+                <>
+                    <div className="left">
+                        <Carousel className="imgAuto">
+                            {linkFotos.map((item,i)=>(
+                                <div key={i}>
+                                    <img  src={`https://res.cloudinary.com/cuni10/image/upload/c_scale,w_512,q_90/v1647550089/${item}`} alt="" />
+                                </div>
+                            ))}
+                        </Carousel>
+                    </div>
+                    <div className="right">
+                        <Top>
+                            <Titulo>
+                                <TituloSpan>
+                                    <h1>{auto.marca}</h1>
+                                    <h1>{auto.name}</h1>
+                                    <h3>{auto.modelo}</h3>
+                                    <h4>{auto.kilometraje + " Km"}</h4>
+                                </TituloSpan>
+                                
+                            </Titulo>
                             
-                        </Titulo>
-                        
-                        <Marca>
-                                <Image cloudName = "cuni10" publicId={`marcas/Logo_${autoMarca}_512.png`}>
-                                    <Transformation height="128" quality="30" crop="scale" />
-                                </Image>
-                            
-                        </Marca>
-                    </Top>
+                            <Marca>
+                                    <Image cloudName = "cuni10" publicId={`marcas/Logo_${autoMarca}_512.png`}>
+                                        <Transformation height="128" quality="30" crop="scale" />
+                                    </Image>
+                                
+                            </Marca>
+                        </Top>
 
-                    <Precio>
-                        <h1>{"$"+auto.precio}</h1>
-                    </Precio>
+                        <Precio>
+                            <h1>{"$"+auto.precio}</h1>
+                        </Precio>
 
-                    <Contactar>
-                        <Llamar> Llamar <i className='material-icons'>call</i></Llamar>
-                        <Whatsapp>Whatsapp <i className='material-icons'>whatsapp</i></Whatsapp>
-                    </Contactar>
+                        <Contactar>
+                            <Llamar> Llamar <i className='material-icons'>call</i></Llamar>
+                            <Whatsapp>Whatsapp <i className='material-icons'>whatsapp</i></Whatsapp>
+                        </Contactar>
 
-                    <Descripcion>
-                        <h2>Descripcion</h2>
-                        <p>{auto.descripcion}</p>
-                    </Descripcion>
-                </div>
-                
+                        <Descripcion>
+                            <h2>Descripcion</h2>
+                            <p>{auto.descripcion}</p>
+                        </Descripcion>
+                    </div>
+                </>
+                :
+                    <Loading />
+                }
                 
             </AutoCard>
             <ContactoCard>
