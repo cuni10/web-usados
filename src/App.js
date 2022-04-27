@@ -1,4 +1,4 @@
-import React,{Fragment} from "react";
+import React,{Fragment, useEffect, useState} from "react";
 
 import "./html.css";
 
@@ -13,7 +13,6 @@ import Auto from "./views/Auto";
 
 import Media from "react-media";
 
-
 import {
   BrowserRouter as Router,
   Switch,
@@ -22,6 +21,7 @@ import {
 } from "react-router-dom";
 
 function App() {
+
   return (
     <Router>
       <Media queries={{

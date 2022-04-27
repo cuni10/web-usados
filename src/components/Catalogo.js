@@ -4,6 +4,8 @@ import {Image,Transformation} from 'cloudinary-react';
 
 import { db } from '../init-firebase';
 
+import Loading from "../components/Loading";
+
 const Grid = styled.div`
     display: grid;
     margin-top: 50px;
@@ -112,6 +114,7 @@ const Catalogo = ({Link}) => {
 
 
     const [data,setData] = useState([]);
+    const [loading,setLoading] = useState(false);
 
     const consultaCatalogo = async () =>{
         db.collection("autos").onSnapshot((querySnapshot) =>{
@@ -129,6 +132,12 @@ const Catalogo = ({Link}) => {
 
     useEffect(()=>{
 
+        setLoading(true);
+        setTimeout(()=>{
+            setLoading(false )
+        }
+        ,1000);
+
         consultaCatalogo();
 
 
@@ -137,19 +146,25 @@ const Catalogo = ({Link}) => {
     return ( 
         <Fragment>
             <Grid>
-                {data.map( data => (
-                    <Link className="Link" key={data.id} to={`/autos/${data.marca}/${data.name}/${data.id}`}>
-                        <div>
-                            <Image cloudName = "cuni10" publicId={`Catalogo/${data.name}_${data.id}/${data.id}_00.jpg`}>
-                                <Transformation height="251" quality="40" crop="scale" />
-                            </Image>
-                            <h1>{data.name} </h1>
-                            <h1>{data.marca} </h1>
-                            <h2>{data.modelo}</h2>
-                            <h3>{"$"+data.precio}</h3>
-                        </div>
-                    </Link>
-                ))}
+                {loading ?
+                    <Loading />
+                :
+                    (data.map( data => (
+                        <Link className="Link" key={data.id} to={`/autos/${data.marca}/${data.name}/${data.id}`}>
+                            <div>
+                                <Image cloudName = "cuni10" publicId={`Catalogo/${data.name}_${data.id}/${data.id}_00.jpg`}>
+                                    <Transformation height="251" quality="40" crop="scale" />
+                                </Image>
+                                <h1>{data.name} </h1>
+                                <h1>{data.marca} </h1>
+                                <h2>{data.modelo}</h2>
+                                <h3>{"$"+data.precio}</h3>
+                            </div>
+                        </Link>
+                    )))
+
+                }
+                {}
                 
             </Grid>
         </Fragment>
