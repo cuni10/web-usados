@@ -74,6 +74,8 @@ const AutoCard = styled.div`
 
         grid-template-columns: 100%;
         width: 100%;
+        border: 0px;
+        border-radius:0px;
 
         .left{
             padding-top: 0px;
@@ -81,10 +83,6 @@ const AutoCard = styled.div`
             
             justify-self: center;
 
-        }
-
-        .right{
-            border-top: 2px solid #038CFF;
         }
     }
 
@@ -109,8 +107,8 @@ const TituloSpan = styled.span`
 
 `;
 const Marca = styled.div`
-    justify-self: center;
-    align-self: center;
+    justify-self: left;
+    align-self: left;
 `;
 
 const Precio = styled.div`
@@ -122,7 +120,6 @@ const Contactar = styled.div`
     display: flex;
     align-items: center;
     padding-left: 2rem;
-    border-bottom: 2px solid #038CFF;
     padding-bottom: 10px;
 `;
 
@@ -240,7 +237,7 @@ const AutoDetalles = () => {
                                     
                                     <Marca>
                                             <Image cloudName = "cuni10" publicId={`marcas/Logo_${autoMarca}_512.png`}>
-                                                <Transformation height="128" quality="30" crop="scale" />
+                                                <Transformation height="100" quality="30" crop="scale" />
                                             </Image>
                                         
                                     </Marca>

@@ -11,8 +11,8 @@ a {
 }
 
 .header{
-    border-bottom: 1px solid #023047;
-    background-color: #FFB703;
+    border-bottom: 2px solid #023047;
+    background-color: #038CFF;
     position: fixed;
     z-index: 1000;
     width: 100%;
@@ -41,7 +41,7 @@ a {
     margin: 5px 20px;
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
-    background-color: #023047;
+    background-color: whitesmoke;
     
 }
 
@@ -59,11 +59,11 @@ a {
 .nav-link{
     font-size: 1.6rem;
     font-weight: 400;
-    color: #023047;
+    color: whitesmoke;
 }
 
 .nav-link:hover{
-    color: #482ff7;
+    color: #023047;
 }
 
 .relleno{
@@ -88,7 +88,7 @@ a {
         left: -100%;
         top: 5.08rem;
         flex-direction: column;
-        background-color: #FFB703;
+        background-color: #038CFF;
         width: 100%;
         text-align: center;
         transition: 0.3s;
