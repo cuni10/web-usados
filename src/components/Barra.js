@@ -3,7 +3,7 @@ import {React, Fragment} from 'react';
 import styled from "styled-components";
 
 const Container = styled.div`
-    background-color: #FFB703;
+    background-color: #038CFF;
     display: flex;
 `;
 
@@ -11,16 +11,16 @@ const Container = styled.div`
 const Links = styled.li`
     list-style-type:none;
     display: inline-block;
-    background-color: #FFB703;
+    background-color: #038CFF;
 
     #kid{
         display: inline-block;
-        color: #023047;
+        color: whitesmoke;
         text-align: center;
         padding: 14px 16px;
         text-decoration: none;
-        border-bottom: 4px #FFB703 solid;
-        border-top: 4px #FFB703 solid;
+        border-bottom: 4px #038CFF solid;
+        border-top: 4px #038CFF solid;
         :hover{
         color: black;
         transition-duration: 0.2s;
@@ -46,7 +46,7 @@ const SearchContainer = styled.div`
     
     #input{
         width: 100%;
-        border: 3px solid #023047;
+        border: 3px solid whitesmoke;
         border-right: none;
         padding: 5px;
         height: 20px;
@@ -61,10 +61,10 @@ const SearchContainer = styled.div`
     #button{
         width: 40px;
         height: 36px;
-        border: 1px solid #023047;
-        background: #023047;
+        border: 1px solid whitesmoke;
+        background: whitesmoke;
         text-align: center;
-        color: #fff;
+        color: #023047;
         border-radius: 0 5px 5px 0;
         cursor: pointer;
         font-size: 20px;
@@ -74,7 +74,7 @@ const SearchContainer = styled.div`
         padding-top: 5px;
 
         :hover{
-            color: #FFB703;
+            color: #038CFF;
             transition-duration: 0.2s;
         }
     }

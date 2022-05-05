@@ -1,4 +1,4 @@
-import React,{Fragment, useEffect, useState} from "react";
+import React,{Fragment} from "react";
 
 import "./html.css";
 
@@ -37,10 +37,10 @@ function App() {
           </Media>
       <Switch>
         <Route path="/autos/:autoMarca/:autoName/:autoId">
-          <Auto title="Auto - Cat Usados" />
+          <Auto title="Auto - Cat Usados" Link={Link}/>
         </Route>
         <Route path="/contacto">
-          <Contacto title="Contacto - Cat Usados"/>
+          <Contacto title="Contacto - Cat Usados" Link={Link}/>
         </Route>
         <Route path="/autos">
           <Autos title="Autos - Cat Usados" Link={Link}/>

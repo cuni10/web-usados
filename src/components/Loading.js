@@ -5,10 +5,11 @@ import BarLoader from "react-spinners/BarLoader";
 
 const overrride = css`
     display: block;
+    position: absolute;
     border-color: #038CFF;
     align-self: center;
     justify-self: center;
-    position: absolute;
+    
 `;
 
 const Loading = () => {
