@@ -8,11 +8,32 @@ import { useParams } from 'react-router';
 import { db } from '../init-firebase';
 import {Image,Transformation} from 'cloudinary-react';
 
-const Grid = styled.div`
-    background-color: whitesmoke;
+const Container = styled.div`
+
+    display: block;
     width: 60%;
+    background-color: whitesmoke;
     border: 1px solid rgba(51,51,51,0.3);
     border-radius: 5px;
+
+    @media only screen and (max-width: 1600px) {
+
+    }
+    @media only screen and (max-width: 1200px) {
+
+    }
+
+    @media only screen and (max-width: 850px) {
+        width: 100%;
+        border-radius: 0px;
+        border: 0px;
+    }
+`;
+
+const Grid = styled.div`
+    display: grid;
+    
+    
 
     min-height: 300px;
 
@@ -25,7 +46,7 @@ const Grid = styled.div`
         }
 
     @media (max-width: 700px) {
-
+        
 
             div{
                     width: 180px;
@@ -43,8 +64,6 @@ const Grid = styled.div`
 const Titulo = styled.div`
     background-color: #038CFF;
     color: whitesmoke;
-    width: 100%;
-    border-radius: 5px 5px 0px 0px;
     
     h1{
         padding: 10px;
@@ -60,8 +79,8 @@ const Autos = styled.div`
 
     div{
         background-color: whitesmoke;
-        border-radius: 5px;
         border: 1px solid rgba(51,51,51,0.3);
+        border-radius: 5px;
         margin-right: 10px;
         color: #333333;
         cursor: pointer;
@@ -169,10 +188,12 @@ const Sugerencias = ({Link}) => {
 
     return ( 
         <>
-            <Grid>
-                <Titulo>
+        <Container>
+            <Titulo>
                     <h1>Sugerencias de {autoMarca}</h1>
-                </Titulo>
+            </Titulo>
+            <Grid>
+                
                 <Autos>
                     {autos.length ?
                         (autos.map( data => (
@@ -189,10 +210,11 @@ const Sugerencias = ({Link}) => {
                         </Link>
                                         )))
                         :
-                        <h1>No tenemos autos similares.</h1>
+                        <h1>No se encontraron.</h1>
                     }     
                 </Autos>
             </Grid>
+        </Container>
         </>
      );
 }

@@ -13,10 +13,10 @@ const SearchContainer = styled.div`
         height: 20px;
         border-radius: 5px;
         outline: none;
-        color: whitesmoke;
+        color: #023047;
         font-weight: 400;
         font-size: 1.1em;
-        background-color: #038CFF;
+        background-color: whitesmoke;
     }
     
 `;
