@@ -1,35 +1,31 @@
-import React,{Fragment, useEffect, useState} from 'react';
+import React, { useEffect,useState } from 'react';
+
+import Loading from '../components/Loading';
 import styled from 'styled-components';
-import {Image,Transformation} from 'cloudinary-react';
+
+import { useParams } from 'react-router';
 
 import { db } from '../init-firebase';
-
-import Loading from "../components/Loading";
+import {Image,Transformation} from 'cloudinary-react';
 
 const Grid = styled.div`
-    display: grid;
-    margin-top: 50px;
-    grid-template-columns: 250px 250px 250px 250px;
-    grid-row-gap: 50px;
-    grid-column-gap: 50px;
+    background-color: whitesmoke;
+    width: 60%;
+    border: 1px solid rgba(51,51,51,0.3);
+    border-radius: 5px;
 
-    justify-content: center;
+    min-height: 300px;
 
     @media (max-width: 1400px) {
-            grid-template-columns: 250px 250px 250px;
+
         }
 
     @media (max-width: 1010px) {
-            grid-template-columns: 250px 250px;
+
         }
 
     @media (max-width: 700px) {
 
-            margin-top: 25px;
-            grid-template-columns: 1fr 1fr;
-            justify-items: center;
-            grid-row-gap: 20px;
-            grid-column-gap: 0px;
 
             div{
                     width: 180px;
@@ -42,18 +38,37 @@ const Grid = styled.div`
     .Link{
         justify-self: center;
     }
+`;
+
+const Titulo = styled.div`
+    background-color: #038CFF;
+    color: whitesmoke;
+    width: 100%;
+    border-radius: 5px 5px 0px 0px;
+    
+    h1{
+        padding: 10px;
+    }
+    
+`;
+
+const Autos = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    margin: 10px;
+
     div{
         background-color: whitesmoke;
-        justify-self: center;
         border-radius: 5px;
         border: 1px solid rgba(51,51,51,0.3);
-        margin: auto;
+        margin-right: 10px;
         color: #333333;
         cursor: pointer;
         max-width: 251px;
 
         :hover{
-            box-shadow: 0px 0px 7px rgba(2,48,71,0.3);
+            box-shadow: 0px 0px 7px #023047;
             
 
             transition: 0.2s;
@@ -110,39 +125,57 @@ const Grid = styled.div`
     }
 `;
 
-const Catalogo = ({Link}) => {
+const Sugerencias = ({Link}) => {
 
-
-    const [data,setData] = useState([]);
+    const [autos,setAutos] = useState({});
     const [consulta,setConsulta] = useState(false);
 
-    const consultaCatalogo = async () =>{
-        db.collection("autos").onSnapshot((querySnapshot) =>{
-            const docs = [];
+    let {autoId,autoName,autoMarca} = useParams();
 
+    const consultaSugerencias = async () => {
+
+        const documentFile = db.collection("autos");
+
+        var query = documentFile.where("marca", "==", autoMarca);
+
+        const docs = [];
+
+        query.get()
+        .then((querySnapshot) => {
             querySnapshot.forEach((doc)=>{
-                docs.push({...doc.data(), id:doc.id});
+                if(autoId === doc.id){
+
+                }else{
+                    docs.push({...doc.data(), id:doc.id});
+                }
+                
             });
 
-            setData(docs);
+            setAutos(docs);
             setConsulta(true);
+        })
+        .catch((error) => {
+            console.log("Error getting documents: ", error);
         });
 
-       
     }
 
     useEffect(()=>{
 
-        consultaCatalogo();
+        consultaSugerencias();
+        
 
-
-        },[]);
+    },[autoId]);
 
     return ( 
-        <Fragment>
+        <>
             <Grid>
-                {consulta ?
-                    (data.map( data => (
+                <Titulo>
+                    <h1>Sugerencias de {autoMarca}</h1>
+                </Titulo>
+                <Autos>
+                    {autos.length ?
+                        (autos.map( data => (
                         <Link className="Link" key={data.id} to={`/autos/${data.marca}/${data.name}/${data.id}`}>
                             <div>
                                 <Image cloudName = "cuni10" publicId={`Catalogo/${data.name}_${data.id}/${data.id}_00.jpg`}>
@@ -154,15 +187,14 @@ const Catalogo = ({Link}) => {
                                 <h3>{"$"+data.precio}</h3>
                             </div>
                         </Link>
-                    )))
-                :
-                    <Loading />
-                }
-                
+                                        )))
+                        :
+                        <h1>No tenemos autos similares.</h1>
+                    }     
+                </Autos>
             </Grid>
-        </Fragment>
-
+        </>
      );
 }
  
-export default Catalogo;
+export default Sugerencias;

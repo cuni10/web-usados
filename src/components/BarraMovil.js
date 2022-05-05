@@ -8,15 +8,15 @@ const SearchContainer = styled.div`
     
     #input{
         width: 100%;
-        border: 3px solid #023047;
+        border: 3px solid whitesmoke;
         padding: 5px;
         height: 20px;
         border-radius: 5px;
         outline: none;
-        color: #023047;
+        color: whitesmoke;
         font-weight: 400;
         font-size: 1.1em;
-        background-color: whitesmoke;
+        background-color: #038CFF;
     }
     
 `;
