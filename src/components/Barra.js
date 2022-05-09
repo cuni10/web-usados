@@ -1,4 +1,4 @@
-import {React, Fragment} from 'react';
+import {React, Fragment, useState} from 'react';
 
 import styled from "styled-components";
 
@@ -37,7 +37,7 @@ const UlLinks = styled.ul`
     height: 50%;
 `;
 
-const SearchContainer = styled.div`
+const SearchContainer = styled.form`
     display: flex;
     height: 90%;
     margin: auto;
@@ -81,6 +81,13 @@ const SearchContainer = styled.div`
 `;
 
 const Barra = ({Link}) => {
+
+    const [busqueda,setBusqueda] = useState("");
+
+    const guardarBusqueda = (e) =>{
+        setBusqueda(e.target.value)
+    }
+
     return ( 
         <Fragment>
                 <Container>
@@ -97,8 +104,10 @@ const Barra = ({Link}) => {
                     </UlLinks>
 
                 <SearchContainer>
-                    <input id="input" type="text" placeholder="Busca tu auto."></input>
-                    <button id="button" type="button"><i className="material-icons">search</i></button>
+                    <input id="input" type="text" placeholder="Busca tu auto." onChange={guardarBusqueda}></input>
+                    <Link className="Link" to={`/search/${busqueda}`}>
+                        <button id="button" type="submit"><i className="material-icons">search</i></button>
+                    </Link>
                 </SearchContainer>
                     
                 </Container>

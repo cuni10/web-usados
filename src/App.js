@@ -10,6 +10,7 @@ import Inicio from "./views/Inicio";
 import Autos from "./views/Autos";
 import Contacto from "./views/Contacto";
 import Auto from "./views/Auto";
+import Busqueda from "./views/Busqueda";
 
 import Media from "react-media";
 
@@ -36,6 +37,9 @@ function App() {
             )}
           </Media>
       <Switch>
+        <Route path="/search/:query">
+          <Busqueda title="Catamarca Usados"/>
+        </Route>
         <Route path="/autos/:autoMarca/:autoName/:autoId">
           <Auto title="Auto - Cat Usados" Link={Link}/>
         </Route>
